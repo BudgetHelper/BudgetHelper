@@ -5,7 +5,7 @@ import com.budgethelper.model.item.Item;
 import java.math.BigDecimal;
 import java.util.List;
 
-public class Fund {
+public abstract class Fund {
 
 	private String title;
 	private BigDecimal value;
