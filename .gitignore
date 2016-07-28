@@ -1,4 +1,5 @@
-/.idea/
 *.iml
-/out/
-/target/
+
+BudgetHelper/.idea/*
+BudgetHelper/out/*
+BudgetHelper/target/*

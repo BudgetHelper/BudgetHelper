@@ -1,0 +1,58 @@
+<Project>
+  <Name>BudgetHelper</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>uml</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>Fund</Name>
+        <Access>Public</Access>
+        <Location left="436" top="109" />
+        <Size width="242" height="196" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">String title</Member>
+        <Member type="Field">BigDecimal value</Member>
+        <Member type="Field">boolean isAccummulate</Member>
+        <Member type="Field">List&lt;Item&gt; itemsList</Member>
+        <Member type="Constructor">public Fund(boolean isAccumulative, String title)</Member>
+        <Member type="Method">public void addItem(Item item)</Member>
+        <Modifier>Abstract</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Item</Name>
+        <Access>Public</Access>
+        <Location left="1012" top="125" />
+        <Size width="431" height="179" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">String title</Member>
+        <Member type="Field">BigDecimal value</Member>
+        <Member type="Field">Calendar date</Member>
+        <Member type="Field">boolean isRegular</Member>
+        <Member type="Field">boolean isIncomeItem</Member>
+        <Member type="Constructor">public Item(String title, BigDecimal value, boolean isRegular, boolean isIncomeItem)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Event</Name>
+        <Access>Public</Access>
+        <Location left="425" top="404" />
+        <Size width="162" height="128" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">Item itemName</Member>
+        <Member type="Field">Calendar date</Member>
+        <Member type="Field">boolean isEventRegular</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Association" first="0" second="1">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+</Project>
