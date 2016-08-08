@@ -1,0 +1,246 @@
+<Project>
+  <Name>BudgetHelper</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>uml</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Interface">
+        <Name>Event</Name>
+        <Access>Public</Access>
+        <Location left="866" top="574" />
+        <Size width="162" height="78" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">void doCalculation()</Member>
+      </Entity>
+      <Entity type="Class">
+        <Name>Item</Name>
+        <Access>Public</Access>
+        <Location left="1148" top="654" />
+        <Size width="162" height="111" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">BigDecimal item</Member>
+        <Member type="Method">public BigDecimal getValue()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>RegulalEvent</Name>
+        <Access>Public</Access>
+        <Location left="866" top="673" />
+        <Size width="162" height="145" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">Item item</Member>
+        <Member type="Field">Fund fund</Member>
+        <Member type="Method">public BigDecimal getValue()</Member>
+        <Member type="Method">public void doCalculation()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>SingleEvent</Name>
+        <Access>Public</Access>
+        <Location left="866" top="838" />
+        <Size width="162" height="145" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">Item item</Member>
+        <Member type="Field">Fund fund</Member>
+        <Member type="Method">public BigDecimal getValue()</Member>
+        <Member type="Method">public void doCalculation()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Task</Name>
+        <Access>Public</Access>
+        <Location left="542" top="529" />
+        <Size width="192" height="162" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">ArrayList&lt;Events&gt; events</Member>
+        <Member type="Method">public void addEvent(Event ivent)</Member>
+        <Member type="Method">public void removeEvent(int id)</Member>
+        <Member type="Method">public Event getEvent(int id)</Member>
+        <Member type="Method">public ArrayList&lt;Event&gt; getAll()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>TaskSet</Name>
+        <Access>Public</Access>
+        <Location left="542" top="317" />
+        <Size width="192" height="196" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">ArrayList&lt;Task&gt; taskSet</Member>
+        <Member type="Field">String name</Member>
+        <Member type="Method">public void addTask(Task task)</Member>
+        <Member type="Method">public void removeTask(int id)</Member>
+        <Member type="Method">public Task getTask(int id)</Member>
+        <Member type="Method">public ArrayList&lt;Task&gt; getAll()</Member>
+        <Member type="Method">public String getName()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>AbstactFund</Name>
+        <Access>Public</Access>
+        <Location left="140" top="501" />
+        <Size width="291" height="213" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">String title</Member>
+        <Member type="Field">BigDecimal fundValue</Member>
+        <Member type="Field">boolean isAccummulate</Member>
+        <Member type="Field">TaskSet taskSet</Member>
+        <Member type="Constructor">public AbstactFund(boolean isAccumulative, String title)</Member>
+        <Member type="Method">public void addTaskSet(TaskSet taskSet)</Member>
+        <Member type="Method">public TaskSet removeTaskSet(String name)</Member>
+        <Member type="Method">public TaskSet getTaskSet(String name)</Member>
+        <Modifier>Abstract</Modifier>
+      </Entity>
+      <Entity type="Interface">
+        <Name>ModelFund</Name>
+        <Access>Public</Access>
+        <Location left="140" top="400" />
+        <Size width="162" height="78" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">void doDo()</Member>
+      </Entity>
+      <Entity type="Class">
+        <Name>AccumulateFund</Name>
+        <Access>Public</Access>
+        <Location left="140" top="780" />
+        <Size width="291" height="196" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">boolean isAccummulate</Member>
+        <Modifier>Abstract</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>ExpenceFund</Name>
+        <Access>Public</Access>
+        <Location left="460" top="780" />
+        <Size width="291" height="196" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">boolean isAccummulate</Member>
+        <Modifier>Abstract</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Executor</Name>
+        <Access>Public</Access>
+        <Location left="314" top="83" />
+        <Size width="444" height="128" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">ModelFund model</Member>
+        <Member type="Field">View view</Member>
+        <Member type="Method">public void check()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Association" first="2" second="1">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="3" second="1">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>1123</X>
+          <Y>719</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+      <Relationship type="Realization" first="3" second="0">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>814</X>
+          <Y>823</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>836</X>
+          <Y>600</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Realization" first="2" second="0">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>814</X>
+          <Y>701</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>834</X>
+          <Y>600</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Association" first="5" second="4">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>508</X>
+          <Y>380</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>508</X>
+          <Y>551</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="4" second="0">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>770</X>
+          <Y>588</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>807</X>
+          <Y>588</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+      <Relationship type="Realization" first="6" second="7">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>94</X>
+          <Y>520</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>103</X>
+          <Y>430</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Association" first="6" second="5">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>477</X>
+          <Y>616</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>504</X>
+          <Y>342</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+      <Relationship type="Generalization" first="8" second="6">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Generalization" first="9" second="6">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+</Project>
