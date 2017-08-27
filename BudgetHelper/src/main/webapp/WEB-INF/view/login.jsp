@@ -12,5 +12,9 @@
 </head>
 <body>
     <h1>Hello</h1>
+    <br/>
+    <br/>
+    <br/>
+    <h2><a href="${pageContext.request.contextPath}/">Run application</a></h2>
 </body>
 </html>

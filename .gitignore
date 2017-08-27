@@ -1,6 +1,27 @@
 *.iml
+.project
+.classpath
+.c9/
+*.launch
+*.sublime-workspace
 
-BudgetHelper/.idea/*
-BudgetHelper/out/*
-BudgetHelper/target/*
-BudgetHelper/logs/*
+BudgetHelper/.settings
+BudgetHelper/.idea
+BudgetHelper/out
+BudgetHelper/target
+BudgetHelper/logs
+
+BudgetHelper/src/main/webapp/angular
+BudgetHelper/src/main/angular/node_modules
+BudgetHelper/src/main/angular/src/*.js
+BudgetHelper/src/main/angular/src/*.map
+BudgetHelper/src/main/angular/src/**/*.js
+BudgetHelper/src/main/angular/src/**/*.map
+
+
+
+# e2e
+BudgetHelper/src/main/angular/e2e/*.js
+BudgetHelper/src/main/angular/e2e/*.map
+BudgetHelper/src/main/angular/e2e/**/*.js
+BudgetHelper/src/main/angular/e2e/**/*.map

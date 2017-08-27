@@ -10,6 +10,8 @@
     <packaging>war</packaging>
 
     <properties>
+        <war.name>budgethelper</war.name>
+
         <source.version>1.8</source.version>
         <target.version>1.8</target.version>
         <spring.version>4.3.10.RELEASE</spring.version>
@@ -28,7 +30,7 @@
     </properties>
 
     <build>
-        <finalName>budgethelper</finalName>
+        <finalName>${war.name}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -37,6 +39,9 @@
                 <configuration>
                     <source>${source.version}</source>
                     <target>${target.version}</target>
+                    <excludes>
+                        <exclude>angular/**</exclude>
+                    </excludes>
                 </configuration>
             </plugin>
 
@@ -44,12 +49,69 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.0.0</version>
                 <configuration>
+                    <outputDirectory>c:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps\</outputDirectory>
                     <webResources>
                         <resource>
                             <directory>src/main/webapp/resources</directory>
                             <targetPath>resources</targetPath>
                         </resource>
                     </webResources>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <executions>
+                    <execution>
+                        <id>exec-npm-install</id>
+                        <phase>generate-sources</phase>
+                        <configuration>
+                            <workingDirectory>${basedir}/src/main/angular</workingDirectory>
+                            <executable>npm</executable>
+                            <arguments>
+                                <argument>install</argument>
+                            </arguments>
+                        </configuration>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>exec-npm-ng-build</id>
+                        <phase>generate-sources</phase>
+                        <configuration>
+                            <workingDirectory>${basedir}/src/main/angular</workingDirectory>
+                            <executable>ng</executable>
+                            <arguments>
+                                <argument>build</argument>
+                                <argument>--prod</argument>
+                                <argument>--base-href=/${war.name}/angular/</argument>
+                            </arguments>
+                        </configuration>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>3.0.0</version>
+                <configuration>
+                    <failOnError>false</failOnError>
+                    <filesets>
+                        <fileset>
+                            <directory>${basedir}/src/main/angular</directory>
+                            <includes>
+                                <include>dist/**</include>
+                                <include>node_modules/**/*.*</include>
+                            </includes>
+                        </fileset>
+                    </filesets>
                 </configuration>
             </plugin>
 
@@ -89,21 +151,6 @@
                         <phase>process-resources</phase>
                         <goals>
                             <goal>update</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
-                <groupId>org.sonarsource.scanner.maven</groupId>
-                <artifactId>sonar-maven-plugin</artifactId>
-                <version>${sonar.version}</version>
-                <executions>
-                    <execution>
-                        <id>sonar-check</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>sonar</goal>
                         </goals>
                     </execution>
                 </executions>
@@ -238,6 +285,28 @@
                 <pg.user>${jdbc.username}</pg.user>
                 <pg.password>${jdbc.password}</pg.password>
             </properties>
+        </profile>
+
+        <profile>
+            <id>sonarqb</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.sonarsource.scanner.maven</groupId>
+                        <artifactId>sonar-maven-plugin</artifactId>
+                        <version>${sonar.version}</version>
+                        <executions>
+                            <execution>
+                                <id>sonar-check</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sonar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
         </profile>
 
     </profiles>

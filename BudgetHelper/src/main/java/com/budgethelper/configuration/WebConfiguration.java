@@ -28,7 +28,6 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
 	@Bean
 	public InternalResourceViewResolver viewResolver() {
 		final InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-		viewResolver.setPrefix("/WEB-INF/view/");
 		return viewResolver;
 	}
 
