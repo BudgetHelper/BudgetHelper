@@ -5,13 +5,11 @@
     <timestamp key="date" datePattern="dd.MM.yyyy"/>
 
     <appender name="GEN_STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <layout class="ch.qos.logback.classic.PatternLayout">
-
+        <encoder>
             <Pattern>
                 %d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36}.%M{}\(\) - %msg%n
             </Pattern>
-
-        </layout>
+        </encoder>
     </appender>
 
     <appender name="GEN_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">

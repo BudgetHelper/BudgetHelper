@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="item_categories_table" author="vkruglov">
+        <createTable tableName="item_categories">
+            <column name="id" type="bigserial">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="title" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    
+    <changeSet id="items_table" author="vkruglov">
+        <createTable tableName="items">
+            <column name="id" type="bigserial">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="title" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="category_id" type="bigint"/>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="items"
+                                 baseColumnNames="category_id"
+                                 constraintName="fk_items_category"
+                                 referencedTableName="item_categories"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+    
+    <changeSet id="funds_table" author="vkruglov">
+        <createTable tableName="funds">
+            <column name="id" type="bigserial">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="title" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="amount" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="is_accumulative" type="boolean"/>
+            <column name="is_deposit" type="boolean"/>
+            <column name="is_credit" type="boolean"/>
+            <column name="date" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="income_items_table" author="vkruglov">
+        <createTable tableName="income_items">
+            <column name="id" type="bigserial">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="title" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fund_id" type="bigint"/>
+            <column name="amount" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="income_items"
+                                 baseColumnNames="fund_id"
+                                 constraintName="fk_income_item_fund"
+                                 referencedTableName="funds"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="expense_items_table" author="vkruglov">
+        <createTable tableName="expense_items">
+            <column name="id" type="bigserial">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="item_id" type="bigint"/>
+            <column name="category_id" type="bigint"/>
+            <column name="fund_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="price" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="is_regular" type="boolean"/>
+            <column name="date" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="expense_items"
+                                 baseColumnNames="item_id"
+                                 constraintName="fk_expense_item_item"
+                                 referencedTableName="items"
+                                 referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="expense_items"
+                                 baseColumnNames="category_id"
+                                 constraintName="fk_expense_item_category"
+                                 referencedTableName="item_categories"
+                                 referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="expense_items"
+                                 baseColumnNames="fund_id"
+                                 constraintName="fk_expense_item_fund"
+                                 referencedTableName="funds"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+    
+    <changeSet id="regular_items_table" author="vkruglov">
+        <createTable tableName="regular_items">
+            <column name="id" type="bigserial">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="item_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="amount" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="regular_items"
+                                 baseColumnNames="item_id"
+                                 constraintName="fk_regular_item_item"
+                                 referencedTableName="items"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+</databaseChangeLog>

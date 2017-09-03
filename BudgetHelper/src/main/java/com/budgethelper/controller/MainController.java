@@ -9,16 +9,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class MainController {
-	private boolean isLogin = false;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String main() {
-		return isLogin ? "/angular/index.html" : "redirect:/login";
-	}
-
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String login() {
-		isLogin = true;
-		return "/WEB-INF/view/login.jsp";
+		return "/angular/index.html";
 	}
 }

@@ -1,5 +1,6 @@
 package com.budgethelper.configuration;
 
+import liquibase.integration.spring.SpringLiquibase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -20,7 +21,7 @@ import java.util.Properties;
 @EnableTransactionManagement
 @ComponentScan("com.budgethelper")
 @PropertySource(value = "classpath:hibernate.properties")
-public class HibernateConfiguration {
+public class DatabaseConfiguration {
 
 	@Autowired
 	private Environment environment;
@@ -28,9 +29,9 @@ public class HibernateConfiguration {
 	@Bean
 	public LocalSessionFactoryBean sessionFactory() {
 		final LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
-		sessionFactory.setDataSource(datasource());
+		sessionFactory.setDataSource(this.datasource());
 		sessionFactory.setPackagesToScan("com.budgethelper.model");
-		sessionFactory.setHibernateProperties(getHibernateProperties());
+		sessionFactory.setHibernateProperties(this.getHibernateProperties());
 		return sessionFactory;
 	}
 
@@ -48,5 +49,13 @@ public class HibernateConfiguration {
 		final Properties properties = new Properties();
 		properties.put("hibernate.dialect", environment.getRequiredProperty("hibernate.dialect"));
 		return properties;
+	}
+
+	@Bean
+	public SpringLiquibase liquibase() {
+		final SpringLiquibase liquibase = new SpringLiquibase();
+		liquibase.setChangeLog("classpath:liquibase/db_master.xml");
+		liquibase.setDataSource(this.datasource());
+		return liquibase;
 	}
 }
