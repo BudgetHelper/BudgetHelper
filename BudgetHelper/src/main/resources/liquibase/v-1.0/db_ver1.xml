@@ -47,9 +47,10 @@
             <column name="is_accumulative" type="boolean"/>
             <column name="is_deposit" type="boolean"/>
             <column name="is_credit" type="boolean"/>
-            <column name="date" type="timestamp">
+            <column name="created_date" type="timestamp">
                 <constraints nullable="false"/>
             </column>
+            <column name="updated_date" type="timestamp"/>
         </createTable>
     </changeSet>
 
@@ -65,9 +66,10 @@
             <column name="amount" type="bigint">
                 <constraints nullable="false"/>
             </column>
-            <column name="date" type="timestamp">
+            <column name="created_date" type="timestamp">
                 <constraints nullable="false"/>
             </column>
+            <column name="updated_date" type="timestamp"/>
         </createTable>
         <addForeignKeyConstraint baseTableName="income_items"
                                  baseColumnNames="fund_id"
@@ -90,9 +92,10 @@
                 <constraints nullable="false"/>
             </column>
             <column name="is_regular" type="boolean"/>
-            <column name="date" type="timestamp">
+            <column name="created_date" type="timestamp">
                 <constraints nullable="false"/>
             </column>
+            <column name="updated_date" type="timestamp"/>
         </createTable>
         <addForeignKeyConstraint baseTableName="expense_items"
                                  baseColumnNames="item_id"
@@ -122,6 +125,10 @@
             <column name="amount" type="bigint">
                 <constraints nullable="false"/>
             </column>
+            <column name="created_date" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_date" type="timestamp"/>
         </createTable>
         <addForeignKeyConstraint baseTableName="regular_items"
                                  baseColumnNames="item_id"
