@@ -6,6 +6,11 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
     <changeSet id="item_categories_table" author="vkruglov">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="item_categories"/>
+            </not>
+        </preConditions>
         <createTable tableName="item_categories">
             <column name="id" type="bigserial">
                 <constraints primaryKey="true"/>
@@ -17,6 +22,11 @@
     </changeSet>
     
     <changeSet id="items_table" author="vkruglov">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="items"/>
+            </not>
+        </preConditions>
         <createTable tableName="items">
             <column name="id" type="bigserial">
                 <constraints primaryKey="true"/>
@@ -31,9 +41,15 @@
                                  constraintName="fk_items_category"
                                  referencedTableName="item_categories"
                                  referencedColumnNames="id"/>
+        <addUniqueConstraint tableName="items" columnNames="title, category_id"/>
     </changeSet>
     
     <changeSet id="funds_table" author="vkruglov">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="funds"/>
+            </not>
+        </preConditions>
         <createTable tableName="funds">
             <column name="id" type="bigserial">
                 <constraints primaryKey="true"/>
@@ -55,6 +71,11 @@
     </changeSet>
 
     <changeSet id="income_items_table" author="vkruglov">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="income_items"/>
+            </not>
+        </preConditions>
         <createTable tableName="income_items">
             <column name="id" type="bigserial">
                 <constraints primaryKey="true"/>
@@ -78,7 +99,32 @@
                                  referencedColumnNames="id"/>
     </changeSet>
 
+    <changeSet id="tags_table" author="vkruglov">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="tags"/>
+            </not>
+        </preConditions>
+        <createTable tableName="tags">
+            <column name="id" type="bigserial">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="title" type="varchar(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="created_date" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_date" type="timestamp"/>
+        </createTable>
+    </changeSet>
+
     <changeSet id="expense_items_table" author="vkruglov">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="expense_items"/>
+            </not>
+        </preConditions>
         <createTable tableName="expense_items">
             <column name="id" type="bigserial">
                 <constraints primaryKey="true"/>
@@ -92,6 +138,7 @@
                 <constraints nullable="false"/>
             </column>
             <column name="is_regular" type="boolean"/>
+            <column name="tag_id" type="bigint"/>
             <column name="created_date" type="timestamp">
                 <constraints nullable="false"/>
             </column>
@@ -112,9 +159,46 @@
                                  constraintName="fk_expense_item_fund"
                                  referencedTableName="funds"
                                  referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="expense_items"
+                                 baseColumnNames="tag_id"
+                                 constraintName="fk_expense_item_tag"
+                                 referencedTableName="tags"
+                                 referencedColumnNames="id"/>
     </changeSet>
-    
+
+    <changeSet id="expense_item_tag_map" author="vkruglov">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="expense_item_tag_map"/>
+            </not>
+        </preConditions>
+        <createTable tableName="expense_item_tag_map">
+            <column name="expense_item_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="tag_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="expense_item_tag_map"
+                                 baseColumnNames="expense_item_id"
+                                 constraintName="fk_expense_item"
+                                 referencedTableName="expense_items"
+                                 referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="expense_item_tag_map"
+                                 baseColumnNames="tag_id"
+                                 constraintName="fk_tag"
+                                 referencedTableName="tags"
+                                 referencedColumnNames="id"/>
+        <addUniqueConstraint tableName="expense_item_tag_map" columnNames="expense_item_id, tag_id"/>
+    </changeSet>
+
     <changeSet id="regular_items_table" author="vkruglov">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="regular_items"/>
+            </not>
+        </preConditions>
         <createTable tableName="regular_items">
             <column name="id" type="bigserial">
                 <constraints primaryKey="true"/>

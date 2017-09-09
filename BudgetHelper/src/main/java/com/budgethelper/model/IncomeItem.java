@@ -1,46 +1,86 @@
 package com.budgethelper.model;
 
+import java.time.LocalDateTime;
+import javax.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
-import java.time.LocalDateTime;
-
-/**
- * Created by vyach on 08.09.2017.
- */
 @Entity
 @Table(name = "income_items")
-public class IncomeItem {
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+public final class IncomeItem {
 
-	@Getter
-	@Setter
 	@Id
-	private long id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-	@Getter
-	@Setter
 	@Column(nullable = false)
 	private String title;
 
-	@Getter
-	@Setter
-	@Column(name = "fund_id")
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
 	private Fund fund;
 
-	@Getter
-	@Setter
 	@Column(nullable = false)
-	private long amount;
+	private Long amount;
 
-	@Getter
-	@Setter
 	@Column(name = "created_date", nullable = false)
 	private LocalDateTime createdDate;
 
-	@Getter
-	@Setter
 	@Column(name = "updated_date", nullable = false)
 	private LocalDateTime updatedDate;
+
+	@Override
+	public boolean equals(final Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (!(o instanceof IncomeItem)) {
+			return false;
+		}
+
+		final IncomeItem incomeItem = (IncomeItem) o;
+
+		if (this.id != null) {
+			return this.id.equals(incomeItem.getId());
+		}
+		if (this.title != null ? !this.title.equals(incomeItem.getTitle()) : incomeItem.getTitle() != null) {
+			return false;
+		}
+		if (this.fund != null ? !this.fund.equals(incomeItem.getFund()) : incomeItem.getFund() != null) {
+			return false;
+		}
+		if (this.amount != null ? !this.amount.equals(incomeItem.getAmount()) : incomeItem.getAmount() != null) {
+			return false;
+		}
+		return this.createdDate != null
+			? this.createdDate.equals(incomeItem.getCreatedDate())
+			: incomeItem.getCreatedDate() == null;
+	}
+
+	@Override
+	public int hashCode() {
+		int result = id != null ? id.hashCode() : 0;
+		result = 31 * result + (this.title != null ? this.title.hashCode() : 0);
+		result = 31 * result + (this.fund != null ? this.fund.hashCode() : 0);
+		result = 31 * result + (this.amount != null ? this.amount.hashCode() : 0);
+		result = 31 * result + (this.createdDate != null ? this.createdDate.hashCode() : 0);
+		return result;
+	}
+
+	@Override
+	public String toString() {
+		return "IncomeItem{" +
+			"id=" + this.id +
+			", title='" + this.title + '\'' +
+			", fund=" + this.fund +
+			", amount=" + this.amount +
+			", createdDate=" + this.createdDate +
+			", updatedDate=" + this.updatedDate +
+			'}';
+	}
 }

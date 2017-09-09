@@ -1,30 +1,30 @@
 package com.budgethelper.configuration;
 
+import java.util.Properties;
+import javax.sql.DataSource;
 import liquibase.integration.spring.SpringLiquibase;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import javax.sql.DataSource;
-import java.util.Properties;
-
-/**
- * Created by vyach on 06.08.2017.
- */
 @Configuration
 @EnableTransactionManagement
-@ComponentScan("com.budgethelper")
+@ComponentScan("com.budgethelper.model")
 @PropertySource(value = "classpath:hibernate.properties")
 public class DatabaseConfiguration {
 
-	@Autowired
 	private Environment environment;
+
+	public DatabaseConfiguration(final Environment environment) {
+		this.environment = environment;
+	}
 
 	@Bean
 	public LocalSessionFactoryBean sessionFactory() {
@@ -49,6 +49,13 @@ public class DatabaseConfiguration {
 		final Properties properties = new Properties();
 		properties.put("hibernate.dialect", environment.getRequiredProperty("hibernate.dialect"));
 		return properties;
+	}
+
+	@Bean
+	public HibernateTransactionManager transactionManager(final SessionFactory sessionFactory) {
+		final HibernateTransactionManager transactionManager = new HibernateTransactionManager();
+		transactionManager.setSessionFactory(sessionFactory);
+		return transactionManager;
 	}
 
 	@Bean
