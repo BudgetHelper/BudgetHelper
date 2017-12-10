@@ -14,13 +14,15 @@
 
         <source.version>1.8</source.version>
         <target.version>1.8</target.version>
-        <spring.version>4.3.10.RELEASE</spring.version>
+        <spring.version>4.3.13.RELEASE</spring.version>
+        <spring.data.version>1.11.9.RELEASE</spring.data.version>
         <postgresql.version>42.1.3</postgresql.version>
         <hibernate.version>5.2.10.Final</hibernate.version>
         <c3p0.version>0.9.5.2</c3p0.version>
         <jcloverslf4j.version>1.7.25</jcloverslf4j.version>
         <logback.version>1.2.3</logback.version>
         <servletapi.version>3.1.0</servletapi.version>
+        <jackson.version>2.9.3</jackson.version>
         <jstl.version>1.2</jstl.version>
         <sonar.version>3.3.0.603</sonar.version>
         <liquibase.version>3.5.3</liquibase.version>
@@ -29,6 +31,7 @@
         <jmockit.version>1.34</jmockit.version>
         <junit.version>4.12</junit.version>
         <assertj.version>3.8.0</assertj.version>
+        <h2.version>1.4.196</h2.version>
     </properties>
 
     <build>
@@ -51,7 +54,6 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.0.0</version>
                 <configuration>
-                    <outputDirectory>${env.CATALINA_HOME}\webapps\</outputDirectory>
                     <webResources>
                         <resource>
                             <directory>src/main/webapp/resources</directory>
@@ -65,7 +67,8 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.6.0</version>
-                <executions>                    <execution>
+                <executions>
+                    <execution>
                         <id>exec-npm-ng-build</id>
                         <phase>generate-sources</phase>
                         <configuration>
@@ -197,6 +200,12 @@
         </dependency>
 
         <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>${spring.data.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.mchange</groupId>
             <artifactId>c3p0</artifactId>
             <version>${c3p0.version}</version>
@@ -236,6 +245,24 @@
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>${servletapi.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-annotations</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${jackson.version}</version>
         </dependency>
 
         <dependency>
@@ -282,6 +309,13 @@
             <groupId>org.jmockit</groupId>
             <artifactId>jmockit</artifactId>
             <version>${jmockit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>${h2.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
