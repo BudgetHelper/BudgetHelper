@@ -1,18 +1,10 @@
 package com.budgethelper.dao;
 
 import com.budgethelper.model.ExpenseItem;
-import java.time.LocalDateTime;
 import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ExpenseItemDao extends CrudDao<ExpenseItem> {
+public interface ExpenseItemDao extends JpaRepository<ExpenseItem, Long> {
 
-    List<ExpenseItem> getAll();
-
-    List<ExpenseItem> getByCategory(Long categoryId);
-
-    List<ExpenseItem> getByFund(Long fundId);
-
-    List<ExpenseItem> getByDate(LocalDateTime date);
-
-    List<ExpenseItem> getByDatePeriod(LocalDateTime startDate, LocalDateTime endDate);
+    List<ExpenseItem> findAll();
 }
