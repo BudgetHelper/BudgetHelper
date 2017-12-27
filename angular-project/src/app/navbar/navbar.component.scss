@@ -1,7 +1,8 @@
 .wrapper{
-display: grid;
-grid-template: 200px/ 100vw;
-position: fixed;
-background-color: green;
-color: white;
+    display: grid;
+    width: 100vw;
+    position: fixed;
+    background-color: rgb(48, 44, 44);
+    grid-template-columns: auto auto auto;
+    grid-template-rows: 3.125rem; //50px
 }
