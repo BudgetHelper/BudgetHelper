@@ -14,3 +14,16 @@
     height: 3.125rem !important; //50px
     background-color: rgba(48, 44, 44, .95);
 }
+.btn-gold{
+    background-color: rgb(243, 212, 116);
+    &:hover{
+        background-color: rgb(219, 191, 107);   
+    }
+}
+
+.img-navbar{
+    background-image: url('/assets/image/nav_backgr.jpg');
+    height: 14.500rem;
+    width: 100vw;
+    background-size: cover;
+}
