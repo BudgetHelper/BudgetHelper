@@ -1,8 +1,16 @@
+@import '../main_scss/_main';
 .wrapper{
     display: grid;
     width: 100vw;
-    position: fixed;
     background-color: rgb(48, 44, 44);
     grid-template-columns: auto auto auto;
-    grid-template-rows: 3.125rem; //50px
+    height: 5rem;
+    transition: height 1.2s, background-color 2s;
+}
+
+.small-navbar{
+    position: fixed;
+    top: 0;
+    height: 3.125rem !important; //50px
+    background-color: rgba(48, 44, 44, .95);
 }
