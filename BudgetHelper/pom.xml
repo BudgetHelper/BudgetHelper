@@ -32,6 +32,7 @@
         <junit.version>4.12</junit.version>
         <assertj.version>3.8.0</assertj.version>
         <h2.version>1.4.196</h2.version>
+        <swagger.version>2.7.0</swagger.version>
     </properties>
 
     <build>
@@ -318,6 +319,13 @@
             <version>${h2.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
+
     </dependencies>
 
 
