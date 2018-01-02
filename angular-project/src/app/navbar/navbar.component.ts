@@ -15,9 +15,10 @@ smallNavbar:boolean = false;
   @HostListener("window:scroll", [])
   onWindowScroll() {
     let position = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    if (position > 10) {
+    let heightImg = document.getElementById('img-navbar').clientHeight;
+    if (position > heightImg) {
       this.smallNavbar = true;
-    } else
+    }else
       this.smallNavbar = false;
   }
 

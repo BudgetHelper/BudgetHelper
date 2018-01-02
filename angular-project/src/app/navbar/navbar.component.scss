@@ -1,29 +1,38 @@
 @import '../main_scss/_main';
-.wrapper{
-    display: grid;
-    width: 100vw;
-    background-color: rgb(48, 44, 44);
-    grid-template-columns: auto auto auto;
-    height: 5rem;
-    transition: height 1.2s, background-color 2s;
-}
-
-.small-navbar{
-    position: fixed;
-    top: 0;
-    height: 3.125rem !important; //50px
-    background-color: rgba(48, 44, 44, .95);
-}
-.btn-gold{
-    background-color: rgb(243, 212, 116);
-    &:hover{
-        background-color: rgb(219, 191, 107);   
+.nav-bar{
+    .wrapper{
+        display: grid;
+        background-color: rgb(48, 44, 44);
+        grid-template-columns: repeat(3, 1fr);
+        height: 5rem;
+        transition: height 1.2s, background-color 2s, font-size 1.3s;
+        font-size: 1.5rem;
+        .menu-item{
+            border-right: 0.125rem solid rgba(250, 232, 179, .2);
+        }
+        .btn-gold{
+            background-color: rgb(243, 212, 116);
+            &:hover{
+                background-color: rgb(219, 191, 107);   
+            }
+        }
     }
-}
-
-.img-navbar{
-    background-image: url('/assets/image/nav_backgr.jpg');
-    height: 14.500rem;
-    width: 100vw;
-    background-size: cover;
+    .small-navbar{
+        width: 100vw;
+        position: fixed;
+        top: 0;
+        font-size: 1.12rem;
+        height: 3.125rem !important; //50px
+        background-color: rgba(48, 44, 44, .95);
+        .menu-item{
+            border-right: 0.0625rem solid rgba(250, 232, 179, .3);
+        }
+    }
+    .img-navbar{
+        background-image: url('/assets/image/nav_backgr.png');
+        height: 22.7rem;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        transition: height 0.2s;
+    }
 }
