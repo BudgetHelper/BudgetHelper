@@ -5,15 +5,16 @@
         background-color: rgb(48, 44, 44);
         grid-template-columns: repeat(3, 1fr);
         height: 5rem;
-        transition: height 1.2s, background-color 2s, font-size 1.3s;
+        transition: height 1.9s, background-color 2s, font-size 1.3s;
         font-size: 1.5rem;
         .menu-item{
-            border-right: 0.125rem solid rgba(250, 232, 179, .2);
+            border-right: 0.0925rem solid rgba(250, 232, 179, .2);
         }
         .btn-gold{
             background-color: rgb(243, 212, 116);
             &:hover{
-                background-color: rgb(219, 191, 107);   
+                background-color: rgb(219, 191, 107);
+                box-shadow: 0 0 10px rgba(245, 241, 230, 0.5);   
             }
         }
     }
@@ -26,6 +27,9 @@
         background-color: rgba(48, 44, 44, .95);
         .menu-item{
             border-right: 0.0625rem solid rgba(250, 232, 179, .3);
+        }
+        .btn-gold{
+            font-size: .8rem;
         }
     }
     .img-navbar{
