@@ -1,0 +1,27 @@
+@import '../main_scss/_main';
+  .info-card {
+      perspective: 37.5rem;
+      z-index: 1 !important;
+      background-color: rgb(48, 44, 44);
+      .front {
+          .card-image{
+            width: 100%;
+            height: auto;
+            transition: filter 1.2s;
+          }
+        .bg-speaker{
+            background-color: rgba(154, 158, 158, 0.7);
+        }
+    }
+    &:hover {
+        .front {
+            .card-image{
+                filter: opacity(56%);
+            }
+            .bg-speaker{
+                background-color: rgba(185, 189, 189, 0.86);
+            }
+        }
+
+    }
+}

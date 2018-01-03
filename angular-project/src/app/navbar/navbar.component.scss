@@ -1,5 +1,6 @@
 @import '../main_scss/_main';
 .nav-bar{
+    z-index: 350;
     .wrapper{
         display: grid;
         background-color: rgb(48, 44, 44);
@@ -20,6 +21,7 @@
     }
     .small-navbar{
         width: 100vw;
+        z-index: 100;
         position: fixed;
         top: 0;
         font-size: 1.12rem;
