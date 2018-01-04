@@ -1,0 +1,51 @@
+@import '../main_scss/_main';
+.nav-bar{
+    z-index: 350;
+    .wrapper{
+        display: grid;
+        background-color: rgb(48, 44, 44);
+        grid-template-columns: repeat(3, 1fr);
+        height: 5rem;
+        transition: height 1.9s, background-color 2s, font-size 1.3s;
+        font-size: 1.5rem;
+        .menu-item{
+            border-right: 0.0925rem solid rgba(250, 232, 179, .2);
+        }
+        .btn-gold{
+            background-color: rgb(243, 212, 116);
+            &:hover{
+                background-color: rgb(219, 191, 107);
+                box-shadow: 0 0 0.625rem rgba(245, 241, 230, 0.5);   
+            }
+        }
+    }
+    .small-navbar{
+        width: 100vw;
+        z-index: 100;
+        position: fixed;
+        top: 0;
+        font-size: 1.12rem;
+        height: 3.125rem !important; //50px
+        background-color: rgba(48, 44, 44, .95);
+        .menu-item{
+            border-right: 0.0625rem solid rgba(250, 232, 179, .3);
+        }
+        .btn-gold{
+            font-size: .8rem;
+        }
+    }
+    .img-navbar{
+        background-image: url('/assets/image/nav_backgr.png');
+        height: 22.7rem;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        transition: height 0.2s;
+        .btn-navbar{
+            position: relative;
+            top:  40%;
+            .btn-font{
+                font-size: 1.75rem;
+            }
+        }
+    }
+}
