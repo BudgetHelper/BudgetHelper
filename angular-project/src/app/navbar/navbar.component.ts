@@ -6,7 +6,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-smallNavbar:boolean = false;
+isSmallNavbar:boolean = false;
   constructor() { }
 
   ngOnInit() {
@@ -17,9 +17,9 @@ smallNavbar:boolean = false;
     let position = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
     let heightImg = document.getElementById('img-navbar').clientHeight;
     if (position > heightImg) {
-      this.smallNavbar = true;
+      this.isSmallNavbar = true;
     }else
-      this.smallNavbar = false;
+      this.isSmallNavbar = false;
   }
 
 }
