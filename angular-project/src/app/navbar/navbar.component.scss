@@ -15,7 +15,7 @@
             background-color: rgb(243, 212, 116);
             &:hover{
                 background-color: rgb(219, 191, 107);
-                box-shadow: 0 0 10px rgba(245, 241, 230, 0.5);   
+                box-shadow: 0 0 0.625rem rgba(245, 241, 230, 0.5);   
             }
         }
     }
@@ -44,7 +44,7 @@
             position: relative;
             top:  40%;
             .btn-font{
-                font-size: 28px;
+                font-size: 1.75rem;
             }
         }
     }
