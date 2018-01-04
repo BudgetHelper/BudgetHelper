@@ -40,5 +40,12 @@
         background-size: 100%;
         background-repeat: no-repeat;
         transition: height 0.2s;
+        .btn-navbar{
+            position: relative;
+            top:  40%;
+            .btn-font{
+                font-size: 28px;
+            }
+        }
     }
 }
