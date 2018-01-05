@@ -1,61 +1,65 @@
 @import '../main_scss/_main';
 
-.wrap-tittle{
-    margin: 0;
-    outline: 0;
-    padding: 0;
-    vertical-align: baseline;
-    opacity: 0;
-    .feature-title {
-        text-align: center;
-        color: #242d33;
-        border-bottom: 0.0625rem solid #ed1c24;
-        margin-bottom: 4.375rem;
-        .tittle-text{
-            display: inline-block;
-            position: relative;
-            top: 1.125rem;
-            background: #fff;
-            padding: 0 1rem;
-            font-size: 1.625rem;
-            font-weight: 300;
-        }
-    }
-}
-.info-card {
-    perspective: 37.5rem;
-    z-index: 1 !important;
-    background-color: rgb(48, 44, 44);
-    opacity: 0;
+.start-budges{
+    position: relative;
+    top:1000px;
     transition: 2.4s;
-    .front {
-        .card-image{
-            width: 100%;
-            height: auto;
-            filter: brightness(63%);
-            transition: filter 1.9s;
-          }
-          .bg-budget{
-              background-color: rgba(98, 100, 100, 0.7);
-          }
-    }
-    &:hover {
-        .front {
-            .card-image{
-                filter: opacity(40%);
-            }
-            .bg-budget{
-                background-color: rgba(158, 160, 160, 0.86);
+    .wrap-tittle{
+        margin: 0;
+        outline: 0;
+        padding: 0;
+        vertical-align: baseline;
+        .feature-title {
+            text-align: center;
+            color: #242d33;
+            border-bottom: 0.0625rem solid #ed1c24;
+            margin-bottom: 4.375rem;
+            .tittle-text{
+                display: inline-block;
+                position: relative;
+                top: 1.125rem;
+                background: #fff;
+                padding: 0 1rem;
+                font-size: 1.625rem;
+                font-weight: 300;
             }
         }
-    }
-}
-
-.show-cards{
-    .wrap-tittle{
-        opacity: 1;
     }
     .info-card {
-        opacity: 1 !important;
-    }
+        perspective: 37.5rem;
+        z-index: 1 !important;
+        background-color: rgb(48, 44, 44);
+        transition: 2.4s;
+        // opacity: 0;
+        .front {
+            .card-image{
+                width: 100%;
+                height: auto;
+                filter: brightness(63%);
+                transition: filter 1.9s;
+              }
+              .bg-budget{
+                  background-color: rgba(98, 100, 100, 0.7);
+              }
+        }
+        &:hover {
+            .front {
+                .card-image{
+                    filter: opacity(40%);
+                }
+                .bg-budget{
+                    background-color: rgba(158, 160, 160, 0.86);
+                }
+            }
+        }
+    }    
 }
+.show-cards{
+    // .wrap-tittle{
+    //     opacity: 1;
+    // }
+    // .info-card {
+    //     opacity: 1 !important;
+    // }
+    top:0;
+}        

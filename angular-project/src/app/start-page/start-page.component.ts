@@ -7,7 +7,7 @@ import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
   styleUrls: ['./start-page.component.scss']
 })
 export class StartPageComponent implements OnInit {
-  isShowCards:boolean = false;
+  isShowCards: boolean = false;
 
   constructor(private spinnerService: Ng4LoadingSpinnerService) { }
 
@@ -15,19 +15,23 @@ export class StartPageComponent implements OnInit {
     this.spinnerService.show();
     this.spinnerService.show();
     setTimeout(function () { this.spinnerService.hide() }.bind(this), 1500);
+    this.addStyleStaticToElement();
+
+  }
+
+  addStyleStaticToElement() {
+    let position = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    let element = document.getElementById('startBudges');
+    if (position > 0) {
+      console.log('hjdf')
+      element.style.position = 'static';
+    }
   }
 
   @HostListener("window:scroll", [])
   onWindowScroll() {
     let position = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    let element = document.getElementById('startBudges');
-    let positTop = element.getBoundingClientRect().top;
-    let positBottom = element.getBoundingClientRect().bottom;
-    if (position >= positTop && position <= positBottom) {
-      this.isShowCards = true;
-    } 
-    // else
-    // // this.isShowCards = false;
+    if (position > 5) this.isShowCards = true;
   }
 
 }
