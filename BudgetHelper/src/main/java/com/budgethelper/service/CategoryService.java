@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface CategoryService extends CrudService<Category> {
 
-	List<Category> getAll();
+	List<Category> findAll();
 }

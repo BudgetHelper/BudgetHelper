@@ -3,36 +3,35 @@ package com.budgethelper.service.impl;
 import com.budgethelper.dao.CategoryDao;
 import com.budgethelper.model.Category;
 import com.budgethelper.service.CategoryService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
+import org.springframework.stereotype.Service;
 
 @Service
-@Transactional
-public final class CategoryServiceImpl implements CategoryService {
+public class CategoryServiceImpl implements CategoryService {
 
-	@Autowired
-	private CategoryDao categoryDao;
+    private final CategoryDao categoryDao;
 
-	@Override
-	public void save(final Category category) {
-		this.categoryDao.add(category);
-	}
+    public CategoryServiceImpl(final CategoryDao categoryDao) {
+        this.categoryDao = categoryDao;
+    }
 
-	@Override
-	public void update(final Category category) {
-		this.categoryDao.update(category);
-	}
+    @Override
+    public void save(final Category entity) {
+        // do more
+    }
 
-	@Override
-	public void delete(final Category category) {
-		this.categoryDao.delete(category);
-	}
+    @Override
+    public void update(final Category entity) {
+        // do more
+    }
 
-	@Override
-	public List<Category> getAll() {
-		return this.categoryDao.getAll();
-	}
+    @Override
+    public void delete(final Category entity) {
+        // do more
+    }
+
+    @Override
+    public List<Category> findAll() {
+        return categoryDao.findAll();
+    }
 }
