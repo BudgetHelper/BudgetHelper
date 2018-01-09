@@ -1,0 +1,22 @@
+<ng-template #content let-c="close" let-d="dismiss">
+
+    <div class="modal-main">
+      <div class="modal-header text-center">
+        <h4 class="modal-title mx-auto text-center font-weight-bold">Speaker</h4>
+      </div>
+      <div class="modal-body">
+        
+      </div>
+      <div class="modal-footer text-center">
+        <button type="submit" class="btn my-1" (click)="c('Close click')">
+          <i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+        <button type="button" class="btn my-1" (click)="c('Close click')">
+          <i class="fa fa-window-close-o" aria-hidden="true"></i> Close</button>
+      </div>
+    </div>
+  
+  </ng-template>
+  
+  <button (click)="open(content)" class="btn btn-color btn-lg" ngbPopover="Add new item" triggers="mouseenter:mouseleave">
+    <i class="fa fa-user-plus" aria-hidden="true"></i>ADD NEW ITEM
+  </button>

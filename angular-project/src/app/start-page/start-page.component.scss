@@ -4,6 +4,14 @@
     position: relative;
     top:1000px;
     transition: 2.4s;
+    .btn-gold{
+        background-color: rgb(243, 212, 116);
+        color: rgb(78,78,78);
+        &:hover{
+            background-color: rgb(219, 191, 107);
+            box-shadow: 0 0 0.625rem rgba(245, 241, 230, 0.5);   
+        }
+    }
     .wrap-tittle{
         margin: 0;
         outline: 0;
@@ -25,13 +33,26 @@
             }
         }
     }
+    //TODO
+    .ic-bord{
+        border: 1px solid rgba(48, 44, 44, .1);
+        box-shadow: 0 0 10px rgba(48, 44, 44, .4);
+    }
     .info-card {
         perspective: 37.5rem;
         z-index: 1 !important;
-        background-color: rgb(48, 44, 44);
+        
         transition: 2.4s;
         // opacity: 0;
+
+        //TODO
+
+        .card-shad{
+            box-shadow: 0 5px 20px rgba(0,0,0,0.8);
+margin-top: -30px;
+        }
         .front {
+            background-color: rgb(48, 44, 44);
             .card-image{
                 width: 100%;
                 height: auto;
@@ -40,6 +61,34 @@
               }
               .bg-budget{
                   background-color: rgba(98, 100, 100, 0.7);
+              }
+              .tittle-money{
+                  border-radius: 25px;
+                  height: 50px;
+                  width: 50px;
+                  text-align: center;
+                  background-color: #ed1c24;
+                  font-size: .7rem;
+              }
+              .available-amount{
+                display: inline-block;
+                position: absolute;
+                right: 9%;
+                top: -10%;
+                .align-text{
+                    position: relative;
+                    top: 32%;
+                   }
+              }
+              .type-money{
+                display: inline-block;
+                position: absolute;
+                top: -10%;
+                left: 59%;
+                .align-text{
+                 position: relative;
+                 top: 32%;
+                }
               }
         }
         &:hover {
