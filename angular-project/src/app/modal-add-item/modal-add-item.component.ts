@@ -7,7 +7,6 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./modal-add-item.component.scss']
 })
 export class ModalAddItemComponent implements OnInit {
-
   constructor(private modalService: NgbModal) { }
 
   ngOnInit() {

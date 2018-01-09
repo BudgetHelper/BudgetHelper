@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
+import { ImageCropperComponent } from 'ng2-img-cropper';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
@@ -16,7 +17,8 @@ import { ModalAddItemComponent } from './modal-add-item/modal-add-item.component
     AppComponent,
     NavbarComponent,
     StartPageComponent,
-    ModalAddItemComponent
+    ModalAddItemComponent,
+    ImageCropperComponent,
   ],
   imports: [
     BrowserModule,

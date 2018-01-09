@@ -1,22 +1,45 @@
 <ng-template #content let-c="close" let-d="dismiss">
 
-    <div class="modal-main">
-      <div class="modal-header text-center">
-        <h4 class="modal-title mx-auto text-center font-weight-bold">Speaker</h4>
-      </div>
-      <div class="modal-body">
-        
-      </div>
-      <div class="modal-footer text-center">
-        <button type="submit" class="btn my-1" (click)="c('Close click')">
-          <i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
-        <button type="button" class="btn my-1" (click)="c('Close click')">
-          <i class="fa fa-window-close-o" aria-hidden="true"></i> Close</button>
-      </div>
+  <div class="modal-main">
+    <div class="modal-header text-center">
+      <h4 class="modal-title mx-auto text-center font-weight-bold">Item</h4>
     </div>
-  
-  </ng-template>
-  
-  <button (click)="open(content)" class="btn btn-color btn-lg" ngbPopover="Add new item" triggers="mouseenter:mouseleave">
-    <i class="fa fa-user-plus" aria-hidden="true"></i>ADD NEW ITEM
-  </button>
+    <div class="modal-body">
+      <form action="">
+        <!-- <label class="custom-file" id="customFile">
+          <input type="file" class="custom-file-input" (change)="fileChangeListener($event)">
+          <span class="custom-file-control form-control-file"></span>
+        </label> -->
+      
+        <div class="form-group">
+          <label for="fund">Fund</label>
+          <select class="form-control" id="fund">
+            <option>Car</option>
+            <option>Dress</option>
+            <option>Shop</option>
+            <option>Tv</option>
+            <option>Hat</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="price">Price</label>
+          <input type="number" class="form-control" id="price">
+        </div>
+        <div class="form-group">
+          <label for="category">Category</label>
+          <input type="text" class="form-control" id="category">
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer text-center">
+      <button type="submit" class="btn btn-success my-1" (click)="c('Close click')">
+        <i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+      <button type="button" class="btn btn-danger my-1" (click)="c('Close click')">
+        <i class="fa fa-window-close-o" aria-hidden="true"></i> Close</button>
+    </div>
+  </div>
+
+</ng-template>
+
+<button (click)="open(content)" class="btn btn-gold btn-lg">ADD NEW ITEM
+</button>
