@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { StartPageComponent } from './start-page/start-page.component';
 import { ModalAddItemComponent } from './modal-add-item/modal-add-item.component';
+import { CropperComponent } from './cropper/cropper.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { ModalAddItemComponent } from './modal-add-item/modal-add-item.component
     StartPageComponent,
     ModalAddItemComponent,
     ImageCropperComponent,
+    CropperComponent,
   ],
   imports: [
     BrowserModule,

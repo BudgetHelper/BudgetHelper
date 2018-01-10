@@ -6,11 +6,3 @@
         box-shadow: 0 0 0.625rem rgba(245, 241, 230, 0.5);   
     }
 }
-
-#customFile .custom-file-control:lang(en)::after {
-    content: "";
-  }
-  
-  #customFile .custom-file-control:lang(en)::before {
-    content: "";
-  }
