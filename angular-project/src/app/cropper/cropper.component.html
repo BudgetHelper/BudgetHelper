@@ -1,25 +1,25 @@
-<div>
+<div class="cropper my-0">
   <div *ngIf="isShowCropper" class="m-0 p-0">
     <img-cropper #cropper [image]="data" [settings]="cropperSettings"></img-cropper>
     <div class="fa-upload">
       <div class="file-upload">
-        <label for="file-upload" class="custom-file-upload text-center">
+        <label for="file-upload" class="custom-file-upload buttons-cropper text-center">
           <i class="fa fa-folder-open" aria-hidden="true"></i>
         </label>
         <input id="file-upload" type="file" (change)="fileChangeListener($event)">
-        <i class="fa fa-chevron-down fa-tick" [class.show-fa-save]="isUploadImage" aria-hidden="true" (click)="hiddeCropper()"></i>
+        <i class="fa fa-chevron-down fa-tick buttons-cropper" [class.show-fa-save]="isUploadImage" aria-hidden="true" (click)="hiddeCropper()"></i>
       </div>
     </div>
   </div>
-  <div class="errorType m-0 p-0" *ngIf="isShowErrorPhoto">
-    <span class="m-0 py-0 text-danger">{{messageErrorPhoto}}</span>
-  </div>
-  <div *ngIf="isHiddeCropper" class="mt-0 pt-0  text-center show-image">
+  <div *ngIf="isHiddeCropper" class="mt-0 pt-0 text-center show-image">
     <span class="result rounded span-image" *ngIf="data.image">
-      <img [src]="data.image" [width]="264" [height]="223">
+      <img [src]="data.image" class="img-border" [width]="274" [height]="233">
     </span>
-        <span class="fa-show-cropper text-center" aria-hidden="true" (click)="showCropper()">
+        <span class="fa-show-cropper buttons-cropper text-center" aria-hidden="true" (click)="showCropper()">
           <i class="fa fa-crop" aria-hidden="true"></i>
         </span>
+  </div>
+  <div class="errorType m-0 p-0" *ngIf="isShowErrorPhoto">
+    <span class="m-0 py-0 text-danger">{{messageErrorPhoto}}</span>
   </div>
 </div>
