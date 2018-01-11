@@ -29,13 +29,13 @@
         }
     }
     .buttons-cropper{
-        background-color: #fff;
-        color: gray;
+        background-color: rgb(255,255,255);
+        color: rgb(128,128,128);
         box-shadow: 0 0 0.625rem rgba(0,0,0,0.5);
         cursor: pointer;
         transition: box-shadow 0.5s, color 0.8s;
         &:hover{
-            color: black;
+            color: rgb(0,0,0);
             box-shadow: 0 0 0.5625rem 0.125rem rgba(0,0,0,0.78);
         }
     }
@@ -44,7 +44,7 @@
         font-size: 0.9rem;
     } 
     .show-image{
-        background-color: gray;
+        background-color: rgb(128,128,128);
         display: inline-block;
         width: 18.75rem;
         height: 18.75rem;
@@ -60,8 +60,8 @@
         .fa-show-cropper{
             position: relative;
             top: -0.625rem;
-            height: 40.125rem;
-            width: 40.125rem;
+            height: 2.625rem;
+            width: 2.625rem;
             border-radius: 1.313rem;
             font-size: 1.6rem;
             display: inline-block;
