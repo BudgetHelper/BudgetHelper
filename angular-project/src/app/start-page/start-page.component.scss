@@ -33,75 +33,61 @@
             }
         }
     }
-    //TODO
-    .ic-bord{
-        border: 1px solid rgba(48, 44, 44, .1);
-        box-shadow: 0 0 10px rgba(48, 44, 44, .4);
-    }
-    .info-card {
-        perspective: 37.5rem;
-        z-index: 1 !important;
-        
-        transition: 2.4s;
-        // opacity: 0;
+    .small {
+        .ic-bord {
+            border: 1px solid rgba(48, 44, 44, .1);
+            box-shadow: 0 0 0.625rem rgba(48, 44, 44, .4);
+            .info-card {
+                perspective: 37.5rem;
+                z-index: 1 !important;
+                transition: 2.4s;
+                .budget {
+                    .card-image {
+                        background-color: rgb(48, 44, 44);
+                        box-shadow: 0 0.3125rem 1.25rem rgba(0,0,0,0.8);
+                        margin-top: -30px;
+                        border-radius: 5px;
+                    }
+                    .img-budget {
+                        width: 100%;
+                        height: auto;
+                        
+                        border-radius: 5px;
+                        filter: brightness(63%);
+                        transition: filter 1.9s;
+                    }
+                      .tittle-budget {
+                          background-color: rgba(98, 100, 100, 0.7);
+                      }
+                }
+                .tittle-budget {
+                    font-size: .9rem;
+                }
 
-        //TODO
 
-        .card-shad{
-            box-shadow: 0 5px 20px rgba(0,0,0,0.8);
-margin-top: -30px;
-        }
-        .front {
-            background-color: rgb(48, 44, 44);
-            .card-image{
-                width: 100%;
-                height: auto;
-                filter: brightness(63%);
-                transition: filter 1.9s;
-              }
-              .bg-budget{
-                  background-color: rgba(98, 100, 100, 0.7);
-              }
-              .tittle-money{
-                  border-radius: 25px;
-                  height: 50px;
-                  width: 50px;
-                  text-align: center;
-                  background-color: #ed1c24;
-                  font-size: .7rem;
-              }
-              .available-amount{
-                display: inline-block;
-                position: absolute;
-                right: 9%;
-                top: -10%;
-                .align-text{
-                    position: relative;
-                    top: 32%;
-                   }
-              }
-              .type-money{
-                display: inline-block;
-                position: absolute;
-                top: -10%;
-                left: 59%;
-                .align-text{
-                 position: relative;
-                 top: 32%;
-                }
-              }
-        }
-        &:hover {
-            .front {
-                .card-image{
-                    filter: opacity(40%);
-                }
-                .bg-budget{
-                    background-color: rgba(158, 160, 160, 0.86);
-                }
             }
+            &:hover {
+                .info-card {
+                    .budget {
+                        .card-image {
+                            box-shadow: 0 0.3125rem 1.3rem rgba(0,0,0,0.99);
+                        }
+                        .img-budget {
+                            filter: opacity(40%);
+                        }
+                        .tittle-budget {
+                            background-color: rgba(158, 160, 160, 0.86);
+                        }
+                    }
+                }
+                }
+
+            &:hover {
+                box-shadow: 0 0 0.625rem rgba(48, 44, 44, .7);
+            }    
         }
-    }    
+    } 
+
 }
 .show-cards{
     // .wrap-tittle{
@@ -113,8 +99,4 @@ margin-top: -30px;
     top:0;
 }        
 
-.small{
-    .bg-budget{
-        font-size: .9rem;
-    }
-}
+
