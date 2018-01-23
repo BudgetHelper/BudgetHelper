@@ -7,6 +7,7 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./modal-add-item.component.scss']
 })
 export class ModalAddItemComponent implements OnInit {
+  photo = 'assets/image/budget.jpg';
   constructor(private modalService: NgbModal) { }
 
   ngOnInit() {

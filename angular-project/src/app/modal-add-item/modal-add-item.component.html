@@ -39,5 +39,17 @@
 
 </ng-template>
 
-<button (click)="open(content)" class="btn btn-gold btn-lg"><i class="fa fa-plus" aria-hidden="true"></i> Budget
-</button>
+
+<div class="clip-wrap" (click)="open(content)">
+  <img src={{photo}} alt="demo-clip-css" class="element" width="150" height="150"></div>
+
+<svg class="clip-svg" width="0" height="0">
+  <defs>
+    <clipPath id="clip-shape" clipPathUnits="objectBoundingBox" >
+      <polygon points="0.5 0, 1 0.25, 1 0.75, 0.5 1, 0 0.75, 0 0.25" />
+    </clipPath>
+  </defs>
+</svg>
+
+<!-- <button (click)="open(content)" class="btn btn-gold btn-lg"><i class="fa fa-plus" aria-hidden="true"></i> Budget
+</button> -->

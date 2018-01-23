@@ -6,3 +6,17 @@
         box-shadow: 0 0 0.625rem rgba(245, 241, 230, 0.5);   
     }
 }
+
+
+.clip-wrap {
+    text-align: center;
+    cursor: pointer;
+    filter: drop-shadow(0 0 0.1875rem rgba($main-color, .6));
+    &:hover{
+        filter: drop-shadow(0 0 0.275rem rgba($main-color, .84));  
+    }  
+  }
+  
+  .element {
+    clip-path: url("#clip-shape");
+  }

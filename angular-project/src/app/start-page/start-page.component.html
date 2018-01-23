@@ -1,12 +1,9 @@
 <div class="container my-5 px-5 start-budges" [class.show-cards]="isShowCards">
 
-  <div class="wrap-tittle">
-    <div class="feature-title mb-5">
-      <h2 class="tittle-text font-weight-bold">BUDGETS</h2>
+  <div class="wrap-tittle move-top mb-5">
+    <div class="feature-title">
+      <h2 class="tittle-text font-weight-bold"><app-modal-add-item></app-modal-add-item></h2>
     </div>
-  </div>
-  <div class="text-center my-3">
-    <app-modal-add-item></app-modal-add-item>
   </div>
   <div class="row mt-5 small">
     <div class="col-md-6 col-lg-3 my-2">
@@ -521,16 +518,16 @@
   </div>
 
 
+  <div class="wrap-tittle move-top mt-4">
+    <div class="feature-title">
+      <h2 class="tittle-text font-weight-bold"><app-modal-add-item></app-modal-add-item></h2>
+    </div>
+  </div>
 
 </div>
 
-<div class="clip-wrap">
-    <img src={{photo}} alt="demo-clip-css" class="element" width="150" height="150"></div>
-  
-  <svg class="clip-svg" width="0" height="0">
-    <defs>
-      <clipPath id="clip-shape" clipPathUnits="objectBoundingBox" >
-        <polygon points="0.5 0, 1 0.25, 1 0.75, 0.5 1, 0 0.75, 0 0.25" />
-      </clipPath>
-    </defs>
-  </svg>
+<button type="button" id="return-to-top" class="btn btn-circle text-center font-weight-bold" (click)="up()"
+ [class.show]="isShow">
+	<i class="fa fa-chevron-up fa-color align-text-top p-0 m-0"></i>
+</button>
+
