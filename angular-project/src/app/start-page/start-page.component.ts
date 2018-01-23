@@ -38,7 +38,6 @@ export class StartPageComponent implements OnInit {
     let position = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
     if (position > 10) {
       this.isShow = true;
-      console.log(`true`)
     } else
       this.isShow = false;
   }
